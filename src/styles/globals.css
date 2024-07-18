@@ -2,32 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
+*,
+html,
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'Raleway', 'Poppins', sans-serif;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth !important;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+:root {
+  --skeleton-bg-light: rgb(241 245 249);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #00314b transparent;
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  width: 0.3em;
+  height: 0.3em;
+}
+::-webkit-scrollbar-thumb {
+  background: #00314b;
+  border-radius: 2em;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+*:disabled {
+  cursor: not-allowed;
+}
+.scroll-bar-none::-webkit-scrollbar {
+  display: none;
+}
+@layer components {
+  .main-container {
+    @apply lg:container mx-auto px-3 md:px-6 lg:px-6 2xl:px-10;
+  }
+  .common-transition {
+    @apply !transition-all !ease-in-out !duration-300;
+  }
+  .delay-animation {
+    @apply !transition-all !ease-in-out !duration-500;
+  }
+  .dashboard-title {
+    @apply text-lg md:text-xl tracking-wide font-semibold text-primary font-[Poppins];
+  }
+  .lead-page-title {
+    @apply font-semibold text-2xl md:text-4xl lg:text-5xl;
+  }
+  .lead-page-secondary-title {
+    @apply text-sm md:text-base 2xl:text-lg text-secondary-text;
+  }
+  .common-card {
+    @apply rounded-xl shadow-[rgba(76,_78,_100,_0.14)_0px_2px_10px_0px] bg-white !important;
+  }
+  .global-gap {
+    @apply xl:gap-5 gap-4 2xl:gap-6;
+  }
+  .global-t-padding {
+    @apply pt-10 md:pt-14 lg:pt-20;
+  }
+  .global-b-padding {
+    @apply pb-10 md:pb-14 lg:pb-20;
+  }
+  .global-y-padding {
+    @apply py-10 md:py-14 lg:py-20;
+  }
+  .btn-primary {
+    @apply bg-gradient-to-b from-quinary to-dark text-white;
+  }
+  .poppins {
+    @apply font-[Poppins];
   }
 }
